@@ -68,18 +68,18 @@ export class ChatGateway {
     @ConnectedSocket() client: Socket,
   ) {
     //  Token checking
-    const token = client.handshake.auth?.token;
-    if (!token) {
-      client.emit('error', { message: 'Unauthorized: Token missing' });
-      throw new UnauthorizedException('Token missing');
-    }
+    // const token = client.handshake.auth?.token;
+    // if (!token) {
+    //   client.emit('error', { message: 'Unauthorized: Token missing' });
+    //   throw new UnauthorizedException('Token missing');
+    // }
 
-    if (!data.room || !data.username || !data.content) {
-      client.emit('error', {
-        message: 'room, username, and content are required',
-      });
-      return;
-    }
+    // if (!data.room || !data.username || !data.content) {
+    //   client.emit('error', {
+    //     message: 'room, username, and content are required',
+    //   });
+    //   return;
+    // }
 
     const msg = await this.chatService.createMessage(
       data.room,
